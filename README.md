@@ -1,4 +1,4 @@
-# 🧩Quize game 
+# 🧩Quiz game 
 Interactive HTML Quiz built with Vanilla JavaScript, CSS animations and JSON data. Users can answer questions and see their final score.
 
 ##📦 Technologies
@@ -50,3 +50,4 @@ Interactive HTML Quiz built with Vanilla JavaScript, CSS animations and JSON dat
 - Add sound effects or micro-interactions for better user engagement.
 
 ## 🍿 Video
+https://github.com/user-attachments/assets/3fadff3e-cb88-426b-a820-f9b80bbafabd
