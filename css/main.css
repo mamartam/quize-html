@@ -1,0 +1,309 @@
+/* FONT STYLES */
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght,YOPQ@100..900,300&display=swap");
+/* VARIABLES */
+:root {
+  --body-bg: whitesmoke;
+  --button-and-question-section: #f5824a;
+  --text-color: #161e54;
+  --shadow: #ede4c2;
+  --correct-green: #254f22;
+  --wrong-red: #a03a13;
+}
+/* RESET STYLES */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+button {
+  border: none;
+  background-color: transparent;
+}
+/* BASIC STYLES */
+body {
+  width: 100%;
+  height: 100vh;
+  font-size: 16px;
+  font-family: "Kumbh Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  background-color: var(--body-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+/* welcome section */
+.welcome-section {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.welcome-header {
+  font-size: 3em;
+  margin-bottom: 1em;
+  animation: animationForWelocmeHeader 1s linear forwards;
+}
+@keyframes animationForWelocmeHeader {
+  from {
+    color: rgb(0, 0, 0, 0);
+  }
+  to {
+    color: rgb(0, 0, 0, 1);
+  }
+}
+.start-btn {
+  display: flex;
+  opacity: 0;
+  border: none;
+  padding: 1em 1em;
+  background-color: var(--button-and-question-section);
+  border-radius: 1em;
+  outline: 1px solid var(--button-and-question-section);
+  transition:
+    box-shadow 0.3s linear,
+    outline 0.2s linear;
+  color: var(--text-color);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-weight: bold;
+  transform: translateY(0);
+}
+.start-btn.animation {
+  opacity: 1;
+  padding: 1em 4em;
+  animation: animationForStartBtn 1s linear forwards;
+  cursor: pointer;
+}
+
+@keyframes animationForStartBtn {
+  from {
+    transform: scale(0.5);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+.hide-section.welcome-section {
+  display: none;
+}
+
+.start-btn.animation {
+  opacity: 1;
+  padding: 1em 4em;
+  animation: animationForStartBtn 1s linear forwards;
+  cursor: pointer;
+}
+
+@keyframes animationForStartBtn {
+  from {
+    transform: scale(0.5);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+.pressed-start-btn .welcome-header {
+  animation: animationHideHeaderWelcome 2s ease-in-out forwards;
+}
+@keyframes animationHideHeaderWelcome {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-1000px);
+  }
+}
+.pressed-start-btn .start-btn {
+  animation: animationHideStartBtn 2s ease-in-out forwards;
+}
+@keyframes animationHideStartBtn {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(1000px);
+  }
+}
+
+/* main section */
+.main-section {
+  display: none;
+}
+.main-section.active {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.questions-section {
+  background-color: var(--button-and-question-section);
+  width: 350px;
+  padding: 2em;
+  border-radius: 1em;
+  box-shadow: 0.5em 1em 0 var(--shadow);
+  margin-bottom: 2em;
+}
+.question-header {
+  font-size: 1.25em;
+  margin-bottom: 1em;
+  color: #161e54;
+}
+.options-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  gap: 1em;
+}
+.option-item {
+  background-color: var(--button-and-question-section);
+  padding: 1em;
+  border-radius: 1em;
+  outline: 1px solid var(--button-and-question-section);
+  transition:
+    box-shadow 0.3s linear,
+    outline 0.2s linear;
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+}
+.option-item:hover {
+  cursor: pointer;
+  outline: 1px solid var(--shadow);
+  box-shadow: 0.2em 0.2em 0 var(--shadow);
+}
+.nav-btns {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: end;
+}
+.next-btn,
+.finish-btn {
+  border: none;
+  padding: 1em 3em;
+  background-color: var(--button-and-question-section);
+  border-radius: 1em;
+  outline: 1px solid var(--button-and-question-section);
+  transition:
+    box-shadow 0.3s linear,
+    outline 0.2s linear;
+  color: var(--text-color);
+}
+.next-btn:hover,
+.finish-btn:hover {
+  cursor: pointer;
+  outline: 1px solid var(--shadow);
+  box-shadow: 0.5em 0.5em 0 var(--shadow);
+}
+.hidden {
+  display: none;
+}
+.nav-boxes {
+  width: 100%;
+  display: flex;
+  margin-bottom: 2em;
+}
+.box {
+  display: block;
+  width: 2em;
+  height: 0.2em;
+  background-color: var(--shadow);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.nav-boxes {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.inside-box {
+  display: block;
+  width: 0;
+  height: inherit;
+  height: inherit;
+}
+.class-with-animation-correct {
+  background-color: var(--correct-green);
+  animation: doneTask 0.5s linear forwards;
+}
+.class-with-animation-wrong {
+  background-color: var(--wrong-red);
+  animation: doneTask 0.5s linear forwards;
+}
+
+@keyframes doneTask {
+  from {
+    width: 0;
+  }
+  to {
+    width: 2em;
+  }
+}
+.chosen-option {
+  outline: 1px solid var(--shadow);
+}
+
+.result-section {
+  display: none;
+}
+.result-section.active {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.hide-section.result-section {
+  display: none;
+}
+.result-header {
+  font-size: 2em;
+  margin-bottom: 1em;
+  animation: animationHideHeaderWelcome 2s ease-in-out forwards;
+  animation-direction: reverse;
+}
+.result-section p {
+  color: #254f22;
+  font-weight: bold;
+  font-size: 2em;
+  animation: animationHideStartBtn 2s ease-in-out forwards;
+  animation-direction: reverse;
+}
+
+/* TABLET STYLES */
+@media screen and (min-width: 700px) {
+  body {
+    font-size: 18px;
+  }
+  .questions-section {
+    width: 500px;
+  }
+}
+/* DESKTOP STYLES */
+@media screen and (min-width: 1200px) {
+  body {
+    font-size: 20px;
+  }
+  .questions-section {
+    width: 700px;
+  }
+  .options-container {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+}
