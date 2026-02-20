@@ -1,0 +1,77 @@
+[
+  {
+    "id": 0,
+    "question": "What does HTML stand for?",
+    "answers": [
+      "Hyper Trainer Marking Language",
+      "Hyper Text Markup Language",
+      "Hyperlinks and Text Markup Language",
+      "Home Tool Markup Language"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 1,
+    "question": "Which element is used for the largest heading?",
+    "answers": ["<h6>", "<h1>", "<header>", "<head>"],
+    "correct": 1
+  },
+  {
+    "id": 2,
+    "question": "Which tag is used to create a hyperlink?",
+    "answers": ["<link>", "<a>", "<href>", "<hyper>"],
+    "correct": 1
+  },
+  {
+    "id": 3,
+    "question": "What does the <ul> tag create?",
+    "answers": [
+      "Ordered list",
+      "Unordered list",
+      "Underline text",
+      "Unique list"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 4,
+    "question": "Which attribute is used for images?",
+    "answers": ["src", "href", "alt", "both src and alt"],
+    "correct": 3
+  },
+  {
+    "id": 5,
+    "question": "Which tag is used to create a table row?",
+    "answers": ["<td>", "<tr>", "<th>", "<table>"],
+    "correct": 1
+  },
+  {
+    "id": 6,
+    "question": "How do you insert a comment in HTML?",
+    "answers": [
+      "// this is a comment",
+      "<!-- this is a comment -->",
+      "# this is a comment",
+      "/* this is a comment */"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 7,
+    "question": "Which tag is used to create a dropdown list?",
+    "answers": ["<select>", "<option>", "<input>", "<form>"],
+    "correct": 0
+  },
+  {
+    "id": 8,
+    "question": "Which tag is used to display an image?",
+    "answers": ["<img>", "<image>", "<pic>", "<src>"],
+    "correct": 0
+  },
+  {
+    "id": 9,
+    "question": "Which tag defines a paragraph?",
+    "answers": ["<p>", "<para>", "<paragraph>", "<text>"],
+    "correct": 0
+  }
+]
