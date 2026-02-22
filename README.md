@@ -1,7 +1,7 @@
 # 🧩Quiz game 
 Interactive HTML Quiz built with Vanilla JavaScript, CSS animations and JSON data. Users can answer questions and see their final score.
 
-##📦 Technologies
+## 📦Technologies
 - HTML
   - Semantic HTML structure (section, article, main)
   - Data attributes (data-id) for linking questions and answers
