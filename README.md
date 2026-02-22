@@ -47,7 +47,6 @@ Interactive HTML Quiz built with Vanilla JavaScript, CSS animations and JSON dat
 - Save user results using localStorage to track progress over time.
 - Improve accessibility (keyboard navigation and ARIA labels).
 - Add smooth page transitions between quiz states (welcome, quiz, and result screens).
-- Add sound effects or micro-interactions for better user engagement.
 
 ## 🍿 Video
 https://github.com/user-attachments/assets/3fadff3e-cb88-426b-a820-f9b80bbafabd
