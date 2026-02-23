@@ -308,13 +308,15 @@ main {
   padding: 1em;
   border: 1px solid var(--text-color);
   border-radius: 1em;
-  width: 400px;
+  width: 200px;
 }
 .res {
   margin: 1em;
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
+  /* justify-content: space-between; */
   align-items: center;
+  margin-bottom: 1em;
 }
 .res .user-score {
   font-size: 1.5em;
@@ -331,6 +333,27 @@ main {
   }
   .questions-section {
     width: 500px;
+  }
+   .user-history-of-results {
+    padding: 1em;
+    border: 1px solid var(--text-color);
+    border-radius: 1em;
+    width: 400px;
+  }
+  .res {
+    margin: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+  }
+  .res .user-score {
+    font-size: 1.5em;
+  }
+  .res .tite-of-result {
+    color: grey;
+    font-size: 0.75em;
   }
 }
 /* DESKTOP STYLES */
