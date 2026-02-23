@@ -20,6 +20,8 @@ const resultSection = document.querySelector(".result-section");
 const userResult = document.querySelector(".user-result");
 
 const playAgainBtn = document.querySelector(".play-again-btn");
+
+const userHistoryOfResults = document.querySelector(".user-history-of-results");
 let userRes = [];
 // Start btn is appearing
 setTimeout(() => {
@@ -41,25 +43,45 @@ startBtn.addEventListener("click", () => {
 
 let count = 0;
 let userAnswers = [];
+const minValue = 0;
 
-function writeDataToTheDOMElements(index, arrayOfData) {
+function writeDataToTheDOMElements(number, arrayOfData, index) {
+  console.log(arrayOfData[index].id);
   questionsSection.dataset.id = arrayOfData[index].id;
-  questionHeader.textContent = `${index + 1}. ${arrayOfData[index].question}`;
+
+  questionHeader.textContent = `${number + 1}. ${arrayOfData[index].question}`;
   arrayOfData[index].answers.forEach((answer, i) => {
     optionItems[i].textContent = answer;
   });
 }
 
+function generateRandomNumber(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 async function gettingDataFromExternalSource() {
   const response = await fetch("js/data.json");
-  const data = await response.json();
+  const dataOriginal = await response.json();
 
-  writeDataToTheDOMElements(count, data);
+  let quantityOfQuestions =
+    dataOriginal.length >= 10 ? 10 : dataOriginal.length;
+
+  let StartMaxValue = dataOriginal.length;
+  console.log(`length of data array from 0 to - ${StartMaxValue}`);
+  //  Клонування масиву, щоб уникнути мутації оригінального
+  let data = JSON.parse(JSON.stringify(dataOriginal));
+
+  let randomIndex = generateRandomNumber(minValue, StartMaxValue - 1);
+  writeDataToTheDOMElements(count, data, randomIndex);
+  let idForArray;
 
   playAgainBtn.addEventListener("click", () => {
     userAnswers.length = 0;
     count = 0;
-    writeDataToTheDOMElements(count, data);
+    data = JSON.parse(JSON.stringify(dataOriginal));
+    let newRandomIndex = generateRandomNumber(minValue, data.length - 1);
+
+    writeDataToTheDOMElements(count, data, newRandomIndex);
     mainSection.classList.remove("hide-section");
     mainSection.classList.add("active");
     resultSection.classList.remove("active");
@@ -71,11 +93,17 @@ async function gettingDataFromExternalSource() {
     nextBtn.classList.add("hidden");
     removingOutline();
   });
-  let len = data.length;
+  // let len = data.length;
   nextBtn.addEventListener("click", () => {
+    // let index = data.indexOf(data[idForArray]);
     checkingAnswer(count);
     count++;
-    writeDataToTheDOMElements(count, data);
+    data.splice(randomIndex, 1);
+    console.log("after splicing -", data);
+    console.log(data.length);
+    let newRandomIndex = generateRandomNumber(minValue, data.length - 1);
+
+    writeDataToTheDOMElements(count, data, newRandomIndex);
 
     nextBtn.classList.add("hidden");
     removingOutline();
@@ -88,16 +116,26 @@ async function gettingDataFromExternalSource() {
       mainSection.classList.add("hide-section");
       mainSection.classList.remove("active");
       resultSection.classList.add("active");
-      userResults(userAnswers);
+      userResults(userAnswers, quantityOfQuestions);
     }, 1000);
   });
 
   questionsSection.addEventListener("click", (event) => {
-    let idForArray = Number(event.currentTarget.dataset.id);
-    let correctAnswer = data[idForArray].correct;
-    let correctOrNot;
+    idForArray = Number(event.currentTarget.dataset.id);
+    console.log(`options container id - ${idForArray}`);
+
+    // let index = data.indexOf(data[idForArray]);
+    let foundElement = data.find((e) => {
+      return e["id"] === idForArray;
+    });
+
+    console.log(foundElement);
+    let correctAnswer = foundElement.correct;
+    console.log(`correctAnswer - ${correctAnswer}`);
+    let correctOrNot = "";
     if (event.target.classList.contains("option-item")) {
       let userChoice = Number(event.target.dataset.id);
+      console.log(`userChoice - ${userChoice}`);
       removingOutline();
       event.target.classList.add("chosen-option");
 
@@ -106,14 +144,16 @@ async function gettingDataFromExternalSource() {
       } else {
         correctOrNot = "not correct";
       }
-      userAnswers[idForArray] = correctOrNot;
+      userAnswers[count] = correctOrNot;
 
-      if (count + 1 === len) {
+      if (count + 1 === quantityOfQuestions) {
         finishBtn.classList.remove("hidden");
         nextBtn.classList.add("hidden");
       } else {
         nextBtn.classList.remove("hidden");
       }
+    } else {
+      return;
     }
   });
 }
@@ -125,12 +165,12 @@ function removingOutline() {
   });
 }
 
-function checkingAnswer(idForArray) {
-  if (userAnswers[idForArray] === "correct") {
-    insideBoxes[idForArray].classList.add("class-with-animation-correct");
+function checkingAnswer(ind) {
+  if (userAnswers[ind] === "correct") {
+    insideBoxes[ind].classList.add("class-with-animation-correct");
     playCorrectSound();
   } else {
-    insideBoxes[idForArray].classList.add("class-with-animation-wrong");
+    insideBoxes[ind].classList.add("class-with-animation-wrong");
     playWrongSound();
   }
 }
@@ -150,9 +190,11 @@ function playWrongSound() {
   WrongBtnAudio.currentTime = 0;
   WrongBtnAudio.play();
 }
+
 const UR = JSON.parse(localStorage.getItem("UserHistory")) || [];
 
-function userResults(userAnswers) {
+// Функція рахує кількість коректних відповідей за поточну раунд і додає ці дані в масив з даними які були раніше
+function userResults(userAnswers, qOfQ) {
   let points = 0;
   userAnswers.forEach((element) => {
     if (element === "correct") points++;
@@ -165,10 +207,11 @@ function userResults(userAnswers) {
   let curretTime = `${date.getFullYear()}-${date.getMonth() + 1}-${date.toLocaleString("en-US", options)} ${date.getHours()}:${date.getMinutes()}`;
   let result = {
     score: points,
-    total: 10,
+    total: qOfQ,
     date: curretTime,
   };
   UR.unshift(result);
+
   if (UR.length > 3) {
     UR.splice(3);
   }
@@ -176,10 +219,10 @@ function userResults(userAnswers) {
   localStorage.setItem("UserHistory", JSON.stringify(UR));
 
   userRes = JSON.parse(localStorage.getItem("UserHistory"));
-  console.log(userRes);
   displayingUserHistory(UR);
 }
-const userHistoryOfResults = document.querySelector(".user-history-of-results");
+
+// Виведення масиву резкльтатів користувача - останні три результати
 function displayingUserHistory(array) {
   userHistoryOfResults.innerHTML = "";
   let arrayForHtml = array.map((event) => {
