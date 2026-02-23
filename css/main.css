@@ -283,6 +283,45 @@ main {
   font-size: 2em;
   animation: animationHideStartBtn 2s ease-in-out forwards;
   animation-direction: reverse;
+  margin-bottom: 1em;
+}
+
+.play-again-btn {
+  border: none;
+  padding: 1em 3em;
+  background-color: var(--button-and-question-section);
+  border-radius: 1em;
+  outline: 1px solid var(--button-and-question-section);
+  transition:
+    box-shadow 0.3s linear,
+    outline 0.2s linear;
+  color: var(--text-color);
+  margin-bottom: 1em;
+}
+.play-again-btn:hover {
+  cursor: pointer;
+  outline: 1px solid var(--shadow);
+  box-shadow: 0.5em 0.5em 0 var(--shadow);
+}
+
+.user-history-of-results {
+  padding: 1em;
+  border: 1px solid var(--text-color);
+  border-radius: 1em;
+  width: 400px;
+}
+.res {
+  margin: 1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.res .user-score {
+  font-size: 1.5em;
+}
+.res .tite-of-result {
+  color: grey;
+  font-size: 0.75em;
 }
 
 /* TABLET STYLES */
