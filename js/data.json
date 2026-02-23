@@ -73,5 +73,250 @@
     "question": "Which tag defines a paragraph?",
     "answers": ["<p>", "<para>", "<paragraph>", "<text>"],
     "correct": 0
+  },
+  {
+    "id": 10,
+    "question": "Which tag is used to create a line break?",
+    "answers": ["<break>", "<lb>", "<br>", "<line>"],
+    "correct": 2
+  },
+  {
+    "id": 11,
+    "question": "Which tag is used for an ordered list?",
+    "answers": ["<ul>", "<ol>", "<li>", "<list>"],
+    "correct": 1
+  },
+  {
+    "id": 12,
+    "question": "Which tag is used to define a list item?",
+    "answers": ["<item>", "<list>", "<li>", "<ul>"],
+    "correct": 2
+  },
+  {
+    "id": 13,
+    "question": "Which tag is used to make text bold?",
+    "answers": ["<bold>", "<b>", "<strong>", "both <b> and <strong>"],
+    "correct": 3
+  },
+  {
+    "id": 14,
+    "question": "Which tag is used to make text italic?",
+    "answers": ["<i>", "<italic>", "<em>", "both <i> and <em>"],
+    "correct": 3
+  },
+  {
+    "id": 15,
+    "question": "Which tag is used to create a form?",
+    "answers": ["<form>", "<input>", "<fieldset>", "<label>"],
+    "correct": 0
+  },
+  {
+    "id": 16,
+    "question": "Which attribute specifies a unique identifier?",
+    "answers": ["class", "id", "name", "key"],
+    "correct": 1
+  },
+  {
+    "id": 17,
+    "question": "Which tag is used for a checkbox?",
+    "answers": ["<check>", "<input type='checkbox'>", "<box>", "<checkbox>"],
+    "correct": 1
+  },
+  {
+    "id": 18,
+    "question": "Which tag defines a table header?",
+    "answers": ["<td>", "<tr>", "<th>", "<thead>"],
+    "correct": 2
+  },
+  {
+    "id": 19,
+    "question": "Which tag is used to define the document title?",
+    "answers": ["<meta>", "<title>", "<head>", "<header>"],
+    "correct": 1
+  },
+  {
+    "id": 20,
+    "question": "Which tag is used to embed a video?",
+    "answers": ["<media>", "<video>", "<movie>", "<mp4>"],
+    "correct": 1
+  },
+  {
+    "id": 21,
+    "question": "Which tag is used to embed audio?",
+    "answers": ["<sound>", "<music>", "<audio>", "<mp3>"],
+    "correct": 2
+  },
+  {
+    "id": 22,
+    "question": "Which tag is used to group content in a block?",
+    "answers": ["<span>", "<div>", "<section>", "<article>"],
+    "correct": 1
+  },
+  {
+    "id": 23,
+    "question": "Which tag is inline by default?",
+    "answers": ["<div>", "<p>", "<span>", "<section>"],
+    "correct": 2
+  },
+  {
+    "id": 24,
+    "question": "Which tag defines navigation links?",
+    "answers": ["<nav>", "<menu>", "<links>", "<header>"],
+    "correct": 0
+  },
+  {
+    "id": 25,
+    "question": "Which tag defines main content?",
+    "answers": ["<body>", "<main>", "<section>", "<article>"],
+    "correct": 1
+  },
+  {
+    "id": 26,
+    "question": "Which attribute opens link in new tab?",
+    "answers": ["target='_blank'", "newtab", "open='new'", "href='_blank'"],
+    "correct": 0
+  },
+  {
+    "id": 27,
+    "question": "Which tag defines a footer?",
+    "answers": ["<bottom>", "<footer>", "<end>", "<section>"],
+    "correct": 1
+  },
+  {
+    "id": 28,
+    "question": "Which tag defines emphasized text?",
+    "answers": ["<strong>", "<b>", "<em>", "<mark>"],
+    "correct": 2
+  },
+  {
+    "id": 29,
+    "question": "Which tag highlights text?",
+    "answers": ["<highlight>", "<mark>", "<em>", "<strong>"],
+    "correct": 1
+  },
+  {
+    "id": 30,
+    "question": "Which tag is used for a text input?",
+    "answers": [
+      "<input type='text'>",
+      "<textfield>",
+      "<text>",
+      "<input type='input'>"
+    ],
+    "correct": 0
+  },
+  {
+    "id": 31,
+    "question": "Which tag is used to create a button?",
+    "answers": ["<btn>", "<button>", "<input>", "<click>"],
+    "correct": 1
+  },
+  {
+    "id": 32,
+    "question": "Which attribute is used to provide alternative text for images?",
+    "answers": ["title", "alt", "src", "name"],
+    "correct": 1
+  },
+  {
+    "id": 33,
+    "question": "Which tag is used to define metadata?",
+    "answers": ["<meta>", "<data>", "<info>", "<head>"],
+    "correct": 0
+  },
+  {
+    "id": 34,
+    "question": "Which tag defines the header of a page?",
+    "answers": ["<top>", "<header>", "<head>", "<section>"],
+    "correct": 1
+  },
+  {
+    "id": 35,
+    "question": "Which tag is used to group form elements?",
+    "answers": ["<fieldset>", "<group>", "<formgroup>", "<section>"],
+    "correct": 0
+  },
+  {
+    "id": 36,
+    "question": "Which tag defines a caption for a table?",
+    "answers": ["<title>", "<caption>", "<thead>", "<label>"],
+    "correct": 1
+  },
+  {
+    "id": 37,
+    "question": "Which tag is used for code snippets?",
+    "answers": ["<code>", "<pre>", "<snippet>", "<script>"],
+    "correct": 0
+  },
+  {
+    "id": 38,
+    "question": "Which tag preserves whitespace?",
+    "answers": ["<pre>", "<code>", "<p>", "<space>"],
+    "correct": 0
+  },
+  {
+    "id": 39,
+    "question": "Which tag defines a section?",
+    "answers": ["<part>", "<section>", "<div>", "<article>"],
+    "correct": 1
+  },
+  {
+    "id": 40,
+    "question": "Which tag defines an article?",
+    "answers": ["<post>", "<article>", "<section>", "<div>"],
+    "correct": 1
+  },
+  {
+    "id": 41,
+    "question": "Which tag is used for a horizontal line?",
+    "answers": ["<line>", "<hr>", "<br>", "<border>"],
+    "correct": 1
+  },
+  {
+    "id": 42,
+    "question": "Which attribute specifies input placeholder?",
+    "answers": ["value", "text", "placeholder", "hint"],
+    "correct": 2
+  },
+  {
+    "id": 43,
+    "question": "Which tag defines a label for input?",
+    "answers": ["<label>", "<tag>", "<inputlabel>", "<name>"],
+    "correct": 0
+  },
+  {
+    "id": 44,
+    "question": "Which tag is used for a progress bar?",
+    "answers": ["<progress>", "<meter>", "<loading>", "<bar>"],
+    "correct": 0
+  },
+  {
+    "id": 45,
+    "question": "Which tag defines a meter value?",
+    "answers": ["<progress>", "<meter>", "<range>", "<scale>"],
+    "correct": 1
+  },
+  {
+    "id": 46,
+    "question": "Which tag defines a time/date?",
+    "answers": ["<date>", "<time>", "<clock>", "<datetime>"],
+    "correct": 1
+  },
+  {
+    "id": 47,
+    "question": "Which tag is used to embed another webpage?",
+    "answers": ["<frame>", "<iframe>", "<embed>", "<object>"],
+    "correct": 1
+  },
+  {
+    "id": 48,
+    "question": "Which tag is used to define keyboard input?",
+    "answers": ["<kbd>", "<key>", "<input>", "<code>"],
+    "correct": 0
+  },
+  {
+    "id": 49,
+    "question": "Which tag defines deleted text?",
+    "answers": ["<del>", "<remove>", "<strike>", "<delete>"],
+    "correct": 0
   }
 ]
