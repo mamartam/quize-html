@@ -43,8 +43,6 @@ Interactive HTML Quiz built with Vanilla JavaScript, CSS animations and JSON dat
 
 - Add visual feedback for correct and incorrect answers (highlight selected option in green or red).
 - Implement a timer for each question.
-- Add a restart button to allow users to retake the quiz.
-- Save user results using localStorage to track progress over time.
 - Improve accessibility (keyboard navigation and ARIA labels).
 - Add smooth page transitions between quiz states (welcome, quiz, and result screens).
 
