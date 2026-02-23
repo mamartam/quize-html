@@ -19,6 +19,8 @@ const WrongBtnAudio = document.querySelector(".WrongBtnAudio");
 const resultSection = document.querySelector(".result-section");
 const userResult = document.querySelector(".user-result");
 
+const playAgainBtn = document.querySelector(".play-again-btn");
+let userRes = [];
 // Start btn is appearing
 setTimeout(() => {
   startBtn.classList.add("animation");
@@ -54,6 +56,21 @@ async function gettingDataFromExternalSource() {
 
   writeDataToTheDOMElements(count, data);
 
+  playAgainBtn.addEventListener("click", () => {
+    userAnswers.length = 0;
+    count = 0;
+    writeDataToTheDOMElements(count, data);
+    mainSection.classList.remove("hide-section");
+    mainSection.classList.add("active");
+    resultSection.classList.remove("active");
+    insideBoxes.forEach((element) => {
+      element.classList.remove("class-with-animation-wrong");
+      element.classList.remove("class-with-animation-correct");
+    });
+    finishBtn.classList.add("hidden");
+    nextBtn.classList.add("hidden");
+    removingOutline();
+  });
   let len = data.length;
   nextBtn.addEventListener("click", () => {
     checkingAnswer(count);
@@ -133,6 +150,7 @@ function playWrongSound() {
   WrongBtnAudio.currentTime = 0;
   WrongBtnAudio.play();
 }
+const UR = JSON.parse(localStorage.getItem("UserHistory")) || [];
 
 function userResults(userAnswers) {
   let points = 0;
@@ -140,4 +158,36 @@ function userResults(userAnswers) {
     if (element === "correct") points++;
   });
   userResult.textContent = points;
+  let date = new Date();
+  let options = {
+    day: "numeric",
+  };
+  let curretTime = `${date.getFullYear()}-${date.getMonth() + 1}-${date.toLocaleString("en-US", options)} ${date.getHours()}:${date.getMinutes()}`;
+  let result = {
+    score: points,
+    total: 10,
+    date: curretTime,
+  };
+  UR.unshift(result);
+  if (UR.length > 3) {
+    UR.splice(3);
+  }
+
+  localStorage.setItem("UserHistory", JSON.stringify(UR));
+
+  userRes = JSON.parse(localStorage.getItem("UserHistory"));
+  console.log(userRes);
+  displayingUserHistory(UR);
+}
+const userHistoryOfResults = document.querySelector(".user-history-of-results");
+function displayingUserHistory(array) {
+  userHistoryOfResults.innerHTML = "";
+  let arrayForHtml = array.map((event) => {
+    return `<div class="res">
+            <p class="user-score">${event.score} / ${event.total}</p>
+            <p class="tite-of-result">${event.date}</p>
+          </div>`;
+  });
+  arrayForHtml = arrayForHtml.join("");
+  userHistoryOfResults.innerHTML = arrayForHtml;
 }
